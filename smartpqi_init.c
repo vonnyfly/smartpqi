@@ -7162,7 +7162,7 @@ static int __init pqi_init(void)
 {
 	int rc;
 
-	pr_info(DRIVER_NAME "\n");
+	pr_info(DRIVER_NAME " custom\n");
 
 	pqi_sas_transport_template =
 		sas_attach_transport(&pqi_sas_transport_functions);

@@ -62,7 +62,7 @@
 #if TORTUGA
 #define SIS_CTRL_READY_TIMEOUT_SECS		150
 #else
-#define SIS_CTRL_READY_TIMEOUT_SECS		30
+#define SIS_CTRL_READY_TIMEOUT_SECS		300
 #endif
 #define SIS_CTRL_READY_RESUME_TIMEOUT_SECS	90
 #define SIS_CTRL_READY_POLL_INTERVAL_MSECS	10
@@ -355,6 +355,7 @@ static int sis_wait_for_doorbell_bit_to_clear(
 
 	timeout = (SIS_DOORBELL_BIT_CLEAR_TIMEOUT_SECS * HZ) + jiffies;
 
+    pr_info("smartpqi probe timeout: %ds\n", SIS_CTRL_READY_TIMEOUT_SECS);
 	while (1) {
 		doorbell_register =
 			readl(&ctrl_info->registers->sis_host_to_ctrl_doorbell);
